@@ -28,6 +28,7 @@ public class Config {
 			BufferedReader in = new BufferedReader(new FileReader(configFile));
 			while ((line = in.readLine()) != null)
 			{
+				if (line.startsWith("#")) continue;
 				if (line.startsWith(key + " ="))
 				{
 					String ret = line.split("=")[1].trim();

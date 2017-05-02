@@ -23,7 +23,6 @@ public class Config {
 	
 	public static String GetString(String key)
 	{
-		Map<String, String> keys = new HashMap<String, String>();
 		String line;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(configFile));
@@ -31,7 +30,9 @@ public class Config {
 			{
 				if (line.startsWith(key + " ="))
 				{
+					String ret = line.split("=")[1].trim();
 					in.close();
+					return ret;
 				}
 			}
 			
